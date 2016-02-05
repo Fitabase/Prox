@@ -15,4 +15,6 @@ Prox is a small agile experiment created by Fitabase and Arizona State Universit
 3. (option B) Set Dropbox 
 4. If you'd like to use TestFairy for distribution, set TestFairy key in /Prox/Prox.iOS/AppDelegate.cs
 5. Compile using Xamarin Studio https://(www.xamarin.com) and XCode (subscriptions to each required).
-6. 
+
+## Contact Us
+If you would like more information about Prox, or have ideas for how it could be improved or used in your research, please visit https://www.fitabase.com/prox
