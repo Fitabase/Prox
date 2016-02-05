@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PageBase xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Prox;assembly=Prox" x:Class="Prox.EditBeaconPage" BackgroundColor="#edecee" Title="{Binding Title}">
+	<Grid Padding="0,10" RowSpacing="5">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="44" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0" Padding="20,0" BackgroundColor="White" HeightRequest="44">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Label Grid.Column="0" Text="Name" TextColor="Black" VerticalOptions="Center" />
+			<Entry Grid.Column="1" Placeholder="Name" Text="{Binding Name, Mode=TwoWay}" VerticalOptions="Center" />
+		</Grid>
+		<Grid Grid.Row="1" Padding="20,5" BackgroundColor="White" MinimumHeightRequest="44">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Label Grid.Column="0" Text="Category" TextColor="Black" VerticalOptions="Center" />
+			<Label Grid.Column="1" Text="{Binding Category}" TextColor="Gray" VerticalOptions="Center" />
+			<Button Grid.ColumnSpan="2" BackgroundColor="Transparent" Command="{Binding EditCategoryCommand}"/>
+		</Grid>
+		<StackLayout Grid.Row="2" Orientation="Vertical" IsVisible="{Binding Device.IsConnected, Converter={local:ReverseBooleanConverter}}">
+			<Grid BackgroundColor="Gray" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center">
+				<Label Text="Place a single beacon directly on the phone" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" XAlign="Center" />
+			</Grid>
+			<Label Text="Waiting for beacon signal..." TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" XAlign="Center" />
+		</StackLayout>
+		<StackLayout Grid.Row="2" Padding="20,10" Orientation="Vertical" IsVisible="{Binding Device.IsConnected}">
+			<Label Text="{Binding Device.Uuid, StringFormat='UUID: {0}'}" FontSize="Small" TextColor="Black" />
+			<Label Text="{Binding Device.Major, StringFormat='Major: {0}'}" FontSize="Small" TextColor="Black" />
+			<Label Text="{Binding Device.Minor, StringFormat='Minor: {0}'}" FontSize="Small" TextColor="Black" />
+			<Button Text="Change" Command="{Binding ChangeBeaconCommand}" />
+		</StackLayout>
+	</Grid>
+</PageBase>

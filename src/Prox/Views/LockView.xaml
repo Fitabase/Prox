@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prox.LockView">
+	<Grid Padding="30" VerticalOptions="Center" BackgroundColor="White">
+		<Grid.RowDefinitions>
+			<!--0 - Lock text -->
+			<RowDefinition Height="Auto" />
+			<!--1 - distance -->
+			<RowDefinition Height="30" />
+			<!--2 - welcome text -->
+			<RowDefinition Height="Auto" />
+			<!--3 - Passphrase -->
+			<RowDefinition Height="Auto" />
+			<!--4 - Unlock button -->
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<!--0 - Lock text -->
+		<Label Grid.Row="0" FontSize="Small" HorizontalOptions="Center" XAlign="Center" Text="{Binding LockText}" />
+		<!--2 - welcome text -->
+		<Label Grid.Row="2" FontSize="Small" FontAttributes="Italic" HorizontalOptions="Center" XAlign="Center" Text="If you are the study admin, enter the unlock passphrarse:" />
+		<!--3 - Passphrase -->
+		<Entry Grid.Row="3" Text="{Binding PassPhrase, Mode=TwoWay}" Placeholder="let%me)in!" IsPassword="true" />
+		<!--4 - Unlock button -->
+		<Button Grid.Row="4" Text="Unlock" Command="{Binding UnlockCommand}" />
+	</Grid>
+</ContentView>

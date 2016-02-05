@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prox.BeaconsImportPage">
+	<Grid Padding="10,10" RowSpacing="10">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<Label Grid.Row="0" Text="Paste data to add to current beacon configuration:" TextColor="Black" />
+		<Grid Grid.Row="1" Padding="1" BackgroundColor="Black">
+			<Editor Text="{Binding Json}" />
+		</Grid>
+		<Button Grid.Row="2" Text="Import" Command="{Binding RunCommand}" />
+	</Grid>
+</ContentPage>

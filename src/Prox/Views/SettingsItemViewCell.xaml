@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell x:Name="Cell" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prox.SettingsItemViewCell">
+	<Grid Padding="15,10" RowSpacing="10">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="Auto" />
+		</Grid.ColumnDefinitions>
+		<Image Grid.Column="0" BindingContext="{x:Reference Cell}" Source="{Binding Image}" HeightRequest="40" HorizontalOptions="Start" VerticalOptions="Center" />
+		<Label Grid.Column="1" BindingContext="{x:Reference Cell}" Text="{Binding Title}" VerticalOptions="Center" />
+		<Image Grid.Column="3" Source="icon_arrow.png" HeightRequest="10" VerticalOptions="Center" />
+	</Grid>
+</ViewCell>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell x:Name="Cell" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prox.BeaconViewCell">
+	<Grid RowSpacing="10">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="5" />
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="5" />
+		</Grid.ColumnDefinitions>
+		<Image Grid.Column="1" BindingContext="{x:Reference Cell}" Source="{Binding Image}" HeightRequest="20" HorizontalOptions="Start" VerticalOptions="Center" />
+		<Label Grid.Column="2" BindingContext="{x:Reference Cell}" Text="{Binding Title}" VerticalOptions="Center" />
+		<Image Grid.Column="3" Source="icon_arrow.png" HeightRequest="10" VerticalOptions="Center" />
+		<BoxView Grid.ColumnSpan="5" HeightRequest="1" VerticalOptions="End" Color="#80ededed" />
+	</Grid>
+</ViewCell>

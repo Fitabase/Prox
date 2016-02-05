@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Prox;assembly=Prox" x:Class="Prox.SettingsView">
+	<TableView Intent="Settings">
+		<TableRoot>
+			<TableSection>
+				<local:SettingsItemViewCell Title="About" Image="icon_about.png" Command="{Binding ItemSelectedCommand}" CommandParameter="{x:Static local:SettingsItem.About}" />
+				<local:SettingsItemViewCell Title="Export Data" Image="icon_export.png" Command="{Binding ItemSelectedCommand}" CommandParameter="{x:Static local:SettingsItem.ExportData}" />
+			</TableSection>
+			<TableSection>
+				<EntryCell Label="Participant ID" Placeholder="XXXXXXX" Text="{Binding ParticipantId, Mode=TwoWay}" />
+			</TableSection>
+			<TableSection Title="Configuration">
+				<local:SettingsItemViewCell Title="Setup Beacons" Image="icon_beacon.png" Command="{Binding ItemSelectedCommand}" CommandParameter="{x:Static local:SettingsItem.SetupBeacons}" />
+				<local:SettingsItemViewCell Title="Participant View" Image="icon_profile.png" Command="{Binding ItemSelectedCommand}" CommandParameter="{x:Static local:SettingsItem.ParticipantViewConfig}" />
+				<local:SettingsItemViewCell Title="Lockout Screen" Image="icon_lock.png" Command="{Binding ItemSelectedCommand}" CommandParameter="{x:Static local:SettingsItem.LockoutScreenConfig}" />
+			</TableSection>
+			<TableSection Title="Debug">
+				<SwitchCell Text="Push Notifications On Events" On="{Binding IsNotificationsOnEvents}"/>
+			</TableSection>
+		</TableRoot>
+	</TableView>
+</ContentView>

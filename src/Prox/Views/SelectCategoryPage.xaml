@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PageBase xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prox.SelectCategoryPage" BackgroundColor="#edecee" Title="Beacon Category">
+	<Grid Padding="0,20,0,0" RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="10" />
+			<RowDefinition Height="44" />
+			<RowDefinition Height="15" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0" Padding="20,0" BackgroundColor="White" IsVisible="{Binding CanGoBack}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<Label Grid.Column="0" Text="Parent" TextColor="Black" VerticalOptions="Center" />
+			<Label Grid.Column="1" Text="{Binding ParentName}" TextColor="Gray" VerticalOptions="Center" />
+			<Button Grid.Column="2" Command="{Binding GoBackCommand}" Text="Return" />
+		</Grid>
+		<Grid Grid.Row="2" Padding="20,0" BackgroundColor="White">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Label Grid.Column="0" Text="Name" TextColor="Black" VerticalOptions="Center" />
+			<Entry Grid.Column="1" Placeholder="Name" Text="{Binding Name, Mode=TwoWay}" VerticalOptions="Center" />
+		</Grid>
+		<StackLayout Grid.Row="4" Orientation="Horizontal" Spacing="10">
+			<Label Text="  Sub categories" TextColor="Black" VerticalOptions="Center" />
+			<Button Text="Add" Command="{Binding AddSubCategoryCommand}" />
+		</StackLayout>
+		<ListView Grid.Row="5" ItemsSource="{Binding SubCategories}" SelectedItem="{Binding SelectedSubCategory, Mode=TwoWay}" BackgroundColor="White" SeparatorVisibility="None">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<TextCell Text="{Binding Name}" TextColor="Black">
+						<TextCell.ContextActions>
+							<MenuItem Text="Delete" Command="{Binding DeleteCommand}" IsDestructive="true" />
+						</TextCell.ContextActions>
+					</TextCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</Grid>
+</PageBase>

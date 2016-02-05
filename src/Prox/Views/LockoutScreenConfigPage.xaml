@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PageBase xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prox.LockoutScreenConfigPage" BackgroundColor="#edecee" Title="Lockout Screen">
+	<Grid Padding="0, 20">
+		<Grid.RowDefinitions>
+			<!--0 - Lock screen block-->
+			<RowDefinition Height="Auto" />
+			<!--1 - Line-->
+			<RowDefinition Height="1" />
+			<!--2 - Distance-->
+			<RowDefinition Height="20" />
+			<!--3 - Lockout Text label-->
+			<RowDefinition Height="Auto" />
+			<!--4 - Lockout Text-->
+			<RowDefinition Height="Auto" />
+			<!--5 - Distance-->
+			<RowDefinition Height="10" />
+			<!--6 - Pass Phrase-->
+			<RowDefinition Height="Auto" />
+			<!--7 - Warning-->
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<!--0 - Lock screen block-->
+		<Grid Padding="20,0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<Label Grid.Column="0" Text="Lock Settings Screen" VerticalOptions="Center" />
+			<Switch Grid.Column="1" IsToggled="{Binding IsUse, Mode=TwoWay}" VerticalOptions="Center" />
+		</Grid>
+		<!--1 - Line-->
+		<BoxView Grid.Row="1" Color="#60000000" HeightRequest="1" VerticalOptions="End" />
+		<!--3 - Lockout Text label-->
+		<Label Grid.Row="3" Text=" Lockout Text" FontSize="Small" TextColor="#8d8e8d" />
+		<!--4 - Lockout Text-->
+		<Grid Grid.Row="4" BackgroundColor="White" Padding="20, 10" HeightRequest="100">
+			<Editor BackgroundColor="White" IsEnabled="{Binding IsUse}" Text="{Binding LockoutText, Mode=TwoWay}" />
+		</Grid>
+		<!--6 - Pass Phrase-->
+		<Grid Grid.Row="6" Padding="20,0" BackgroundColor="White" HeightRequest="44">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Label Grid.Column="0" Text="Passphrase" VerticalOptions="Center" />
+			<Entry Grid.Column="1" Placeholder="let%me)in!" Text="{Binding Passphrase, Mode=TwoWay}" IsEnabled="{Binding IsUse}" />
+		</Grid>
+		<!--7 - Warning-->
+		<Grid Grid.Row="7" Padding="5,0">
+			<Label Text="WARNING! Do not lose this passphrase. It cannot be retrieved." FontSize="Small" HorizontalOptions="Center" XAlign="Center" TextColor="#8d8e8d" />
+		</Grid>
+	</Grid>
+</PageBase>

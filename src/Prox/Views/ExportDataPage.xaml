@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prox.ExportDataPage" Title="Export Data">
+	<Grid Padding="0, 20" RowSpacing="15">
+		<Grid.RowDefinitions>
+			<!--0 - Start Date-->
+			<RowDefinition Height="Auto" />
+			<!--1 - End Date-->
+			<RowDefinition Height="Auto" />
+			<!--2 - Export label-->
+			<RowDefinition Height="Auto" />
+			<!--3 - Export-->
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<!--0 - Start Date-->
+		<Grid Grid.Row="0" Padding="20,0" BackgroundColor="White" HeightRequest="44">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*" />
+				<ColumnDefinition Width="2*" />
+			</Grid.ColumnDefinitions>
+			<Label Grid.Column="0" Text="Start Date" VerticalOptions="Center" />
+			<DatePicker x:Name="FromDatePicker" Grid.Column="1" Date="{Binding From, Mode=TwoWay}" MaximumDate="{Binding Date, Source={x:Reference ToDatePicker}}" VerticalOptions="Center" />
+		</Grid>
+		<!--1 - End Date-->
+		<Grid Grid.Row="1" Padding="20,0" BackgroundColor="White" HeightRequest="44">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*" />
+				<ColumnDefinition Width="2*" />
+			</Grid.ColumnDefinitions>
+			<Label Grid.Column="0" Text="End Date" VerticalOptions="Center" />
+			<DatePicker x:Name="ToDatePicker" Grid.Column="1" Date="{Binding To, Mode=TwoWay}" MinimumDate="{Binding Date, Source={x:Reference FromDatePicker}}" VerticalOptions="Center" />
+		</Grid>
+		<!--2 - Export label-->
+		<Label Grid.Row="2" Text="  Export  to .csv" FontSize="Small" TextColor="#8d8e8d" />
+		<!--3 - Export-->
+		<StackLayout Grid.Row="3" Padding="20,0" Spacing="10">
+			<StackLayout Orientation="Horizontal">
+				<Image Source="icon_export.png" HeightRequest="30" />
+				<Label Text="export to SMTP email" VerticalOptions="Center" />
+				<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding ExportToEmailCommand}" />
+				</StackLayout.GestureRecognizers>
+			</StackLayout>
+			<StackLayout Orientation="Horizontal">
+				<Image Source="icon_dropbox.png" HeightRequest="30" />
+				<Label Text="export to Dropbox" VerticalOptions="Center" />
+				<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding ExportToDropboxCommand}" />
+				</StackLayout.GestureRecognizers>
+			</StackLayout>
+		</StackLayout>
+	</Grid>
+</ContentPage>

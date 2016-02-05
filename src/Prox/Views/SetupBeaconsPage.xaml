@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PageBase xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Prox;assembly=Prox" x:Class="Prox.SetupBeaconsPage" BackgroundColor="#edecee" Title="Setup Beacons">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Icon="icon_add.png" Command="{Binding AddBeaconCommand}" />
+	</ContentPage.ToolbarItems>
+	<StackLayout Orientation="Vertical" VerticalOptions="Start" Padding="0,20,0,0">
+		<StackLayout Orientation="Horizontal" Padding="0" Spacing="10">
+			<Label Text="  Beacons" TextColor="Black" VerticalOptions="Center" /> 
+			<Button Text="export" VerticalOptions="Center" Command="{Binding ExportCommand}"/>
+			<Button Text="import" VerticalOptions="Center" Command="{Binding ImportCommand}"/>
+		</StackLayout>
+		<ListView ItemsSource="{Binding Beacons}" SelectedItem="{Binding SelectedBeacon, Mode=TwoWay}" BackgroundColor="White" SeparatorVisibility="None">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<local:BeaconViewCell Title="{Binding Name}">
+						<local:BeaconViewCell.ContextActions>
+							<MenuItem IsDestructive="true" Text="Delete" Command="{Binding DeleteCommand}" />
+						</local:BeaconViewCell.ContextActions>
+					</local:BeaconViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</StackLayout>
+</PageBase>

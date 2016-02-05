@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PageBase xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prox.ParticipantViewConfigPage" BackgroundColor="#edecee" Title="Participant View">
+	<Grid Padding="0, 20" RowSpacing="15">
+		<Grid.RowDefinitions>
+			<!--0 - Header Text label-->
+			<RowDefinition Height="Auto" />
+			<!--1 - Header Text-->
+			<RowDefinition Height="Auto" />
+			<!--2 - Contact Text label-->
+			<RowDefinition Height="Auto" />
+			<!--3 - Contact Text-->
+			<RowDefinition Height="Auto" />
+			<!--4 - Email-->
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<!--0 - Header Text label-->
+		<Label Grid.Row="0" Text="  Header Text" FontSize="Small" TextColor="#8d8e8d" />
+		<!--1 - Header Text-->
+		<Grid Grid.Row="1" BackgroundColor="White" Padding="20, 10" HeightRequest="100">
+			<Editor BackgroundColor="White" Text="{Binding HeaderText, Mode=TwoWay}" />
+		</Grid>
+		<!--2 - Contact Text label-->
+		<Label Grid.Row="2" Text="  Contact Text" FontSize="Small" TextColor="#8d8e8d" />
+		<!--3 - Contact Text-->
+		<Grid Grid.Row="3" Padding="20,0" BackgroundColor="White" HeightRequest="44">
+			<Entry Placeholder="Questions?" Text="{Binding ContactText, Mode=TwoWay}" />
+		</Grid>
+		<!--4 - Email-->
+		<Grid Grid.Row="4" Padding="20,0" BackgroundColor="White" HeightRequest="44">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Label Grid.Column="0" Text="Email" VerticalOptions="Center" />
+			<Entry Grid.Column="1" Placeholder="study@gmail.com" Text="{Binding Email, Mode=TwoWay}" VerticalOptions="Center" />
+		</Grid>
+	</Grid>
+</PageBase>
